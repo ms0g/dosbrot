@@ -16,7 +16,7 @@ int findMandelbrot(double real, double imag, int iteration) {
         double rSqr = zReal * zReal;
 		double iSqr = zImag * zImag;
 		
-		if (rSqr + iSqr > 4.0) return i;
+	if (rSqr + iSqr > 4.0) return i;
 
 		zImag = 2.0 * zReal * zImag + imag;
 		zReal = rSqr - iSqr + real;
