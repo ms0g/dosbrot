@@ -13,11 +13,11 @@ int findMandelbrot(double real, double imag, int iteration) {
     double zImag = imag;
     
     for (int i = 0; i < iteration; ++i) {
-        double rSqr = zReal * zReal;
+		double rSqr = zReal * zReal;
 		double iSqr = zImag * zImag;
 		
 		if (rSqr + iSqr > 4.0) return i;
-
+		
 		zImag = 2.0 * zReal * zImag + imag;
 		zReal = rSqr - iSqr + real;
     }
@@ -41,7 +41,7 @@ void main(void) {
 			int value = findMandelbrot(x, y, 100);
 			
 			Pixel p(j, i, DARKGRAY);
-				
+			
 			if (value == 100) { p.setColor(BLACK); }
 			else if (value > 90) { p.setColor(WHITE); }
 			else if (value > 70) { p.setColor(LIGHTRED); }
@@ -55,9 +55,8 @@ void main(void) {
 			else if (value > 2) { p.setColor(BLUE); }
 			else if (value > 1) { p.setColor(MAGENTA); }
 			else {  p.setColor(LIGHTMAGENTA); }
-
-			p.putPixel();
 			
-        }
-    }
+			p.putPixel();
+		}
+	}
 }
