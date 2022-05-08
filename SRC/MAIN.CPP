@@ -57,7 +57,7 @@ void main(void) {
 	        else if (value > 3) { p.setColor(LIGHTBLUE); }
 	        else if (value > 2) { p.setColor(BLUE); }
 	        else if (value > 1) { p.setColor(MAGENTA); }
-	        else {  p.setColor(LIGHTMAGENTA); }
+	        else { p.setColor(LIGHTMAGENTA); }
 
 	        p.putPixel();
 	    }
