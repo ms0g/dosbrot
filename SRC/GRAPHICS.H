@@ -20,6 +20,17 @@ enum COLORS {
     WHITE
 };
 
+/**
+ * Initialize the graphics system.
+ */
+void initGFM(void);
+
+
+/**
+ * @brief The Pixel class
+ *
+ * This class represents a pixel.
+ */
 class Pixel {
 public:
     Pixel(int x, int y, char color);
@@ -28,7 +39,7 @@ public:
     void setX(int x);
     void setY(int y);
     void setColor(char color);
-    int getColor(void) const;
+    char getColor(void) const;
     void putPixel(void);
 private:
     void _putPixel(int x, int y, char color);
@@ -37,6 +48,12 @@ private:
     char m_color;
 };
 
+
+/**
+ * @brief The Rectangle class
+ *
+ * This class represents a rectangle.
+ */
 class Rectangle: public Pixel {
 public:
     Rectangle(int x, int y, int width, int height, char color);
@@ -49,7 +66,5 @@ private:
     int m_height;
  
 };
-
-void initGFM(void);
 
 #endif

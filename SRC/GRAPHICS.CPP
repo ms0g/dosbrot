@@ -34,7 +34,7 @@ void Pixel::setColor(char color) {
     m_color = color;
 }
 
-int Pixel::getColor() const {
+char Pixel::getColor() const {
     return m_color;
 }
 
@@ -52,6 +52,7 @@ void Pixel::_putPixel(int x, int y, char color) {
         int 10h          
     }
 }
+
 
 Rectangle::Rectangle(int x, int y, int width, int height, char color): Pixel(x, y, color) {
     m_width = width;
