@@ -6,8 +6,19 @@
 ### Prerequisites
 + Turbo C++ (>= 3.0)
 + Turbo Assembler (>= 3.2)
++ DOSBox or a real DOS computer
 
 ### Building
 ```bash
-MAKE.EXE
+C:\>MAKE.EXE
+```
+or
+```
+C:\>TCC.EXE -c -oGRAPHICS.OBJ SRC/GRAPHICS.CPP
+C:\>TCC.EXE SRC/MAIN.CPP GRAPHICS.OBJ
+```
+
+### Run
+```bash
+C:\>MAIN.EXE
 ```
