@@ -45,6 +45,7 @@ void main(void) {
 		for (int j = 0; j < WIDTH; j++) {
 			complex_t z = {x0.start + j * dx, y0.end - i * dy};
 			int value = findMandelbrot(z, ITER);
+			
 			Pixel p(j, i, DARKGRAY);
 			if (value == 100) { p.setColor(BLACK); }
 	        else if (value > 90) { p.setColor(WHITE); }
