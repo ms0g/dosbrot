@@ -2,16 +2,19 @@
 
 #define HEIGHT 200
 #define WIDTH 320
+#define ITER 100
 
-struct ScaledCoordinates {
+typedef struct coords {
     double start;
     double end;
-};
+} coords_t;
 
-struct complex {
+
+typedef struct complex {
     double real;
     double imag;
-};
+} complex_t;
+
 
 int findMandelbrot(complex &c, int iteration) {
     double zR = c.real;
@@ -30,22 +33,23 @@ int findMandelbrot(complex &c, int iteration) {
 }
 
 void main(void) {
-    initGFM();
+	initGFM();
 
-    ScaledCoordinates x0 = {-2.0, 1.0};
-    ScaledCoordinates y0 = {-1.0, 1.0};
+    coords_t x0 = {-2.0, 1.0};
+    coords_t y0 = {-1.0, 1.0};
 
     double dx = (x0.end - x0.start)/(WIDTH - 1);
     double dy = (y0.end - y0.start)/(HEIGHT - 1);
 
     for (int i = 0; i < HEIGHT; i++) {
-	    for (int j = 0; j < WIDTH; j++) {
-	        complex z = {x0.start + j * dx, y0.end - i * dy};
+		for (int j = 0; j < WIDTH; j++) {
+	        complex_t z = {x0.start + j * dx, y0.end - i * dy};
 
-	        int value = findMandelbrot(z, 100);
+	        int value = findMandelbrot(z, ITER);
 
 	        Pixel p(j, i, DARKGRAY);
-	        if (value == 100) { p.setColor(BLACK); }
+	        
+			if (value == 100) { p.setColor(BLACK); }
 	        else if (value > 90) { p.setColor(WHITE); }
 	        else if (value > 70) { p.setColor(LIGHTRED); }
 	        else if (value > 50) { p.setColor(RED); }
