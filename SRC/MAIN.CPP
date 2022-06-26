@@ -21,12 +21,12 @@ int findMandelbrot(complex &c, int iteration) {
     double zI = c.imag;
 
     for (int i = 0; i < iteration; ++i) {
-	    double r2 = zR * zR;
-	    double i2 = zI * zI;
-
-	    if (r2 + i2 > 4.0) return i;
-
-	    zI = 2.0 * zR * zI + c.imag;
+		double r2 = zR * zR;
+		double i2 = zI * zI;
+		
+		if (r2 + i2 > 4.0) return i;
+		
+		zI = 2.0 * zR * zI + c.imag;
 	    zR = r2 - i2 + c.real;
     }
     return iteration;
@@ -43,12 +43,9 @@ void main(void) {
 
     for (int i = 0; i < HEIGHT; i++) {
 		for (int j = 0; j < WIDTH; j++) {
-	        complex_t z = {x0.start + j * dx, y0.end - i * dy};
-
-	        int value = findMandelbrot(z, ITER);
-
-	        Pixel p(j, i, DARKGRAY);
-	        
+			complex_t z = {x0.start + j * dx, y0.end - i * dy};
+			int value = findMandelbrot(z, ITER);
+			Pixel p(j, i, DARKGRAY);
 			if (value == 100) { p.setColor(BLACK); }
 	        else if (value > 90) { p.setColor(WHITE); }
 	        else if (value > 70) { p.setColor(LIGHTRED); }
