@@ -1,24 +1,33 @@
-# dosbrot
-[Mandelbrot set](https://en.wikipedia.org/wiki/Mandelbrot_set) renderer on DOS.
+# Dosbrot - Mandelbrot Set Renderer for PC DOS
+## Overview
+**Dosbrot** is a lightweight Mandelbrot Set renderer designed for PC DOS systems. This program visualizes the intricate and infinite patterns of the Mandelbrot Set, a famous fractal in mathematics, allowing users to explore its beautiful complexity on vintage hardware.
 
 ![mandelbrot](ASSETS/mandelbrot.png)
 
-### Prerequisites
+## Prerequisites
 + Turbo C++ (>= 3.0)
-+ Turbo Assembler (>= 3.2)
++ Turbo Assembler (>= 4.2)
 + DOSBox or a real DOS computer
 
-### Building
+## Building
 ```bash
 C:\>MAKE.EXE
 ```
 or
 ```
-C:\>TCC.EXE -c -oGRAPHICS.OBJ SRC/GRAPHICS.CPP
-C:\>TCC.EXE SRC/MAIN.CPP GRAPHICS.OBJ
+C:\>TASM /ml VGA.ASM
+C:\>TCC.EXE DOSBROT.C VGA.OBJ
 ```
 
-### Run
+## Run
 ```bash
-C:\>MAIN.EXE
+C:\>DOSBROT.EXE
 ```
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Credits
+
+Developed by M. Sami Gürpınar
