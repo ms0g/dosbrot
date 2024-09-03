@@ -7,13 +7,12 @@ int findMandelbrot(double real, double imag, int iteration);
 
 void main(void) {
     int i,j,value;
-    
-	double x_start = -2.0;
+    double x_start = -2.0;
     double x_end = 1.0;
     double y_start = -1.0;
     double y_end = 1.0;
-
-    double dx = (x_end - x_start)/(WIDTH - 1);
+	
+	double dx = (x_end - x_start)/(WIDTH - 1);
 	double dy = (y_end - y_start)/(HEIGHT - 1);
     
     _initMode(MODE_VGA_13H);
