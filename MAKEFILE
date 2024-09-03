@@ -1,0 +1,9 @@
+all:
+	MAKE.EXE clean
+	TASM.EXE /ml VGA.ASM
+	TCC.EXE MAIN.C VGA.OBJ
+clean:
+	DEL MAIN.EXE
+	DEL MAIN.OBJ
+	DEL VGA.OBJ
+	
