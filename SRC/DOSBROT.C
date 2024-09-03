@@ -7,7 +7,8 @@ int findMandelbrot(double real, double imag, int iteration);
 
 void main(void) {
     int i,j,value;
-    double x_start = -2.0;
+    
+	double x_start = -2.0;
     double x_end = 1.0;
     double y_start = -1.0;
     double y_end = 1.0;
@@ -16,7 +17,7 @@ void main(void) {
 	double dy = (y_end - y_start)/(HEIGHT - 1);
     
     _initMode(MODE_VGA_13H);
-
+	
 	for (i = 0; i < HEIGHT; i++) {
 		for (j = 0; j < WIDTH; j++) {
 			value = findMandelbrot(x_start + j * dx, y_end - i * dy, 100);
@@ -34,7 +35,7 @@ void main(void) {
 			else if (value > 2) { _putpixel(j, i, BLUE); }
 			else if (value > 1) { _putpixel(j, i, MAGENTA); }
 			else { _putpixel(j, i, LIGHTMAGENTA); }
-        }
+		}
 	}
 }
 
@@ -46,13 +47,14 @@ int findMandelbrot(double real, double imag, int iteration) {
     for (i = 0; i < iteration; ++i) {
 	    double r2 = zR * zR;
 	    double i2 = zI * zI;
-	    
-	    if (r2 + i2 > 4.0) {
-            return i;
-        }
-            
-	    zI = 2.0 * zR * zI + imag;
-	    zR = r2 - i2 + real;
-    }
-    return iteration;
+		
+		if (r2 + i2 > 4.0) {
+			return i;
+		}
+        
+		zI = 2.0 * zR * zI + imag;
+		zR = r2 - i2 + real;
+	}
+    
+	return iteration;
 }
