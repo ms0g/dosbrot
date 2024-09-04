@@ -7,19 +7,19 @@ int computeMandelbrot(double real, double imag, int iteration);
 
 void main(void) {
     int i,j,value;
-    double x_start = -2.0;
-    double x_end = 1.0;
-    double y_start = -1.0;
-    double y_end = 1.0;
+    const double minReal = -2.0;
+    const double maxReal = 1.0;
+    const double minImag = -1.0;
+    const double maxImag = 1.0;
 	
-	double dx = (x_end - x_start)/(WIDTH - 1);
-	double dy = (y_end - y_start)/(HEIGHT - 1);
+	const double dx = (maxReal - minReal)/(WIDTH - 1);
+	const double dy = (maxImag - minImag)/(HEIGHT - 1);
     
     _initMode(MODE_VGA_13H);
 	
 	for (i = 0; i < HEIGHT; i++) {
 		for (j = 0; j < WIDTH; j++) {
-			value = computeMandelbrot(x_start + j * dx, y_end - i * dy, 100);
+			value = computeMandelbrot(minReal + j * dx, maxImag - i * dy, 100);
 			
 			(value == 100) 	? _putpixel(j, i, BLACK): 
 			(value > 90) 	? _putpixel(j, i, WHITE): 
