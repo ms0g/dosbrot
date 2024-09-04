@@ -4,5 +4,5 @@ ECHO Building and Run DOSBROT...
 ECHO =====================
 
 MAKE.EXE
-MAIN.EXE
+DOSBROT.EXE
 PAUSE
