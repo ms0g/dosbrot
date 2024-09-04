@@ -2,7 +2,7 @@
 ## Overview
 **Dosbrot** is a lightweight Mandelbrot Set renderer designed for PC DOS systems. This program visualizes the intricate and infinite patterns of the Mandelbrot Set, a famous fractal in mathematics, allowing users to explore its beautiful complexity on vintage hardware.
 
-<img src="ASSETS/mandelbrot.png" alt="image" width="700" height="auto">
+<img src="RES/mandelbrot.png" alt="image" width="700" height="auto">
 
 ## Prerequisites
 + Turbo C++ (>= 3.0)
