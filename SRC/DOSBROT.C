@@ -3,7 +3,7 @@
 #define WIDTH 320
 #define HEIGHT 200
 
-int findMandelbrot(double real, double imag, int iteration);
+int computeMandelbrot(double real, double imag, int iteration);
 
 void main(void) {
     int i,j,value;
@@ -19,7 +19,7 @@ void main(void) {
 	
 	for (i = 0; i < HEIGHT; i++) {
 		for (j = 0; j < WIDTH; j++) {
-			value = findMandelbrot(x_start + j * dx, y_end - i * dy, 100);
+			value = computeMandelbrot(x_start + j * dx, y_end - i * dy, 100);
 			
 			(value == 100) 	? _putpixel(j, i, BLACK): 
 			(value > 90) 	? _putpixel(j, i, WHITE): 
@@ -37,7 +37,7 @@ void main(void) {
 	}
 }
 
-int findMandelbrot(double real, double imag, int iteration) {
+int computeMandelbrot(double real, double imag, int iteration) {
     int i;
     double zR = real;
     double zI = imag;
