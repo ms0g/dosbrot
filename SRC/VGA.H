@@ -5,7 +5,26 @@
 // VGA GFX Mode
 #define MODE_VGA_13H 0x13
 // VGA Text Mode
-#define MODE_VGA_3H  0x03
+#define MODE_VGA_3H  0x3
+
+enum COLORS {
+    BLACK,		    /* dark colors */
+    BLUE,
+    GREEN,
+    CYAN,
+    RED,
+    MAGENTA,
+    BROWN,
+    LIGHTGRAY,
+    DARKGRAY,		    /* light colors */
+    LIGHTBLUE,
+    LIGHTGREEN,
+    LIGHTCYAN,
+    LIGHTRED,
+    LIGHTMAGENTA,
+    YELLOW,
+    WHITE
+};
 
 #ifdef __cplusplus
 extern "C" {
@@ -13,12 +32,6 @@ extern "C" {
 void _Cdecl _waitvretrace(void);
 void _Cdecl _putpixel(int x, int y, char color);
 void _Cdecl _initMode(int mode);
-
-void initvga(void);
-void exitvga(void);
-void clroffscreen(char color);
-void putpixel(int x, int y, char color);
-void updateVRAM(void);
 #ifdef __cplusplus
 }
 #endif
