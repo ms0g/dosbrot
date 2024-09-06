@@ -6,7 +6,8 @@
 int computeMandelbrot(double real, double imag, int iteration);
 
 void main(void) {
-    int i,j,value;
+    int x,y,value;
+	
     const double minReal = -2.0;
     const double maxReal = 1.0;
     const double minImag = -1.0;
@@ -17,22 +18,24 @@ void main(void) {
     
     _initMode(MODE_VGA_13H);
 	
-	for (i = 0; i < HEIGHT; i++) {
-		for (j = 0; j < WIDTH; j++) {
-			value = computeMandelbrot(minReal + j * dx, maxImag - i * dy, 100);
+	for (y = 0; y < HEIGHT; y++) {
+		double imag = maxImag - y * dy;
+
+		for (x = 0; x < WIDTH; x++) {
+			value = computeMandelbrot(minReal + x * dx, imag, 100);
 			
-			(value == 100) 	? _putpixel(j, i, BLACK): 
-			(value > 90) 	? _putpixel(j, i, WHITE): 
-			(value > 70) 	? _putpixel(j, i, LIGHTRED): 
-			(value > 50) 	? _putpixel(j, i, RED): 
-			(value > 30) 	? _putpixel(j, i, YELLOW): 
-			(value > 20) 	? _putpixel(j, i, LIGHTGREEN): 
-			(value > 10) 	? _putpixel(j, i, GREEN): 
-			(value > 5) 	? _putpixel(j, i, LIGHTCYAN):
-			(value > 4) 	? _putpixel(j, i, CYAN): 
-			(value > 3) 	? _putpixel(j, i, LIGHTBLUE): 
-			(value > 2) 	? _putpixel(j, i, BLUE): 
-			(value > 1) 	? _putpixel(j, i, MAGENTA):_putpixel(j, i, LIGHTMAGENTA); 
+			(value == 100) 	? _putpixel(x, y, BLACK): 
+			(value > 90) 	? _putpixel(x, y, WHITE): 
+			(value > 70) 	? _putpixel(x, y, LIGHTRED): 
+			(value > 50) 	? _putpixel(x, y, RED): 
+			(value > 30) 	? _putpixel(x, y, YELLOW): 
+			(value > 20) 	? _putpixel(x, y, LIGHTGREEN): 
+			(value > 10) 	? _putpixel(x, y, GREEN): 
+			(value > 5) 	? _putpixel(x, y, LIGHTCYAN):
+			(value > 4) 	? _putpixel(x, y, CYAN): 
+			(value > 3) 	? _putpixel(x, y, LIGHTBLUE): 
+			(value > 2) 	? _putpixel(x, y, BLUE): 
+			(value > 1) 	? _putpixel(x, y, MAGENTA):_putpixel(x, y, LIGHTMAGENTA); 
 		}
 	}
 }
