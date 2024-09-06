@@ -3,26 +3,26 @@
 #define WIDTH 320
 #define HEIGHT 200
 
-int computeMandelbrot(double real, double imag, int iteration);
+int computeMandelbrot(double re, double im, int iteration);
 
 void main(void) {
     int x,y,value;
 	
-    const double minReal = -2.0;
-    const double maxReal = 1.0;
-    const double minImag = -1.0;
-    const double maxImag = 1.0;
+    const double remin = -2.0;
+    const double remax = 1.0;
+    const double immin = -1.0;
+    const double immax = 1.0;
 	
-	const double dx = (maxReal - minReal)/(WIDTH - 1);
-	const double dy = (maxImag - minImag)/(HEIGHT - 1);
+	const double dx = (remax - remin)/(WIDTH - 1);
+	const double dy = (immax - immin)/(HEIGHT - 1);
     
     _initMode(MODE_VGA_13H);
 	
 	for (y = 0; y < HEIGHT; y++) {
-		double imag = maxImag - y * dy;
+		double im = immax - y * dy;
 
 		for (x = 0; x < WIDTH; x++) {
-			value = computeMandelbrot(minReal + x * dx, imag, 100);
+			value = computeMandelbrot(remin + x * dx, im, 100);
 			
 			(value == 100)	? _putpixel(x, y, BLACK): 
 			(value > 90) 	? _putpixel(x, y, WHITE): 
@@ -40,10 +40,10 @@ void main(void) {
 	}
 }
 
-int computeMandelbrot(double real, double imag, int iteration) {
+int computeMandelbrot(double re, double im, int iteration) {
     int i;
-    double zR = real;
-    double zI = imag;
+    double zR = re;
+    double zI = im;
 
     for (i = 0; i < iteration; ++i) {
 	    double r2 = zR * zR;
@@ -53,8 +53,8 @@ int computeMandelbrot(double real, double imag, int iteration) {
 			return i;
 		}
         
-		zI = 2.0 * zR * zI + imag;
-		zR = r2 - i2 + real;
+		zI = 2.0 * zR * zI + im;
+		zR = r2 - i2 + re;
 	}
     
 	return iteration;
