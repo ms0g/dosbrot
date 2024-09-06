@@ -24,7 +24,7 @@ void main(void) {
 		for (x = 0; x < WIDTH; x++) {
 			value = computeMandelbrot(minReal + x * dx, imag, 100);
 			
-			(value == 100) 	? _putpixel(x, y, BLACK): 
+			(value == 100)	? _putpixel(x, y, BLACK): 
 			(value > 90) 	? _putpixel(x, y, WHITE): 
 			(value > 70) 	? _putpixel(x, y, LIGHTRED): 
 			(value > 50) 	? _putpixel(x, y, RED): 
