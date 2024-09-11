@@ -18,6 +18,8 @@ void main(void) {
     
     _initMode(MODE_VGA_13H);
 	
+	_waitvretrace();
+	
 	for (y = 0; y < HEIGHT; y++) {
 		double im = immax - y * dy;
 
