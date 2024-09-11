@@ -1,3 +1,4 @@
+.286
 .model small
 .data
 .code
@@ -42,14 +43,24 @@ __initMode endp
 ; void _Cdecl _putpixel(int x, int y, char color)             ;
 ; -------------------------------------------------------------
 __putpixel proc
-    push bp       
+    push bp      
     mov bp, sp
-    mov al, byte ptr [bp+8]
-    mov dx, word ptr [bp+6]
-    mov cx, word ptr [bp+4]
-    mov ah, 0Ch
-    xor bh, bh                
-    int 10h
+    push 0A000h
+    pop es
+    pusha
+    xor di, di
+    mov di, word ptr [bp+4] ;x
+    mov cx, word ptr [bp+6] ;y
+    mov ax, cx
+    shl ax, 08h             ;y<<8
+    add di, ax              ;x+(y<<8)
+    mov ax, cx
+    shl ax, 06h             ;y<<6
+    add di, ax              ;x+(y<<8)+(y<<6)
+    xor ax, ax
+    mov al, byte ptr [bp+8] ;color
+    stosb
+    popa
     mov sp, bp
     pop bp
     ret        
