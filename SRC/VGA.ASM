@@ -47,7 +47,8 @@ __putpixel proc
     mov bp, sp
     push 0A000h
     pop es
-    pusha
+    push si
+    push di
     xor di, di
     mov di, word ptr [bp+4] ;x
     mov cx, word ptr [bp+6] ;y
@@ -60,9 +61,9 @@ __putpixel proc
     xor ax, ax
     mov al, byte ptr [bp+8] ;color
     stosb
-    popa
-    mov sp, bp
-    pop bp
+    pop di
+    pop si
+    leave
     ret        
 __putpixel endp
 end
