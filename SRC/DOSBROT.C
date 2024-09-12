@@ -3,6 +3,23 @@
 #define WIDTH 320
 #define HEIGHT 200
 
+#define CLAMP(v, lo, hi) (v > lo && v < hi) ? v: (v < lo) ? lo:(v > hi) ? hi:0
+
+static char palette[12] = {
+	LIGHTMAGENTA,
+	MAGENTA,
+	BLUE,
+	LIGHTBLUE,
+	0x50,
+	CYAN,
+	LIGHTCYAN,
+	0x60,
+	YELLOW,
+    RED,
+    LIGHTRED,
+	GREEN
+};
+
 int computeMandelbrot(double re, double im, int iteration);
 
 void main(void) {
@@ -26,18 +43,12 @@ void main(void) {
 		for (x = 0; x < WIDTH; x++) {
 			value = computeMandelbrot(remin + x * dx, im, 100);
 			
-			(value == 100)	? _putpixel(x, y, BLACK): 
-			(value > 90) 	? _putpixel(x, y, WHITE): 
-			(value > 70) 	? _putpixel(x, y, LIGHTRED): 
-			(value > 50) 	? _putpixel(x, y, RED): 
-			(value > 30) 	? _putpixel(x, y, YELLOW): 
-			(value > 20) 	? _putpixel(x, y, LIGHTGREEN): 
-			(value > 10) 	? _putpixel(x, y, GREEN): 
-			(value > 5) 	? _putpixel(x, y, LIGHTCYAN):
-			(value > 4) 	? _putpixel(x, y, CYAN): 
-			(value > 3) 	? _putpixel(x, y, LIGHTBLUE): 
-			(value > 2) 	? _putpixel(x, y, BLUE): 
-			(value > 1) 	? _putpixel(x, y, MAGENTA):_putpixel(x, y, LIGHTMAGENTA); 
+			if (value == 100) 
+				_putpixel(x, y, BLACK);
+			else {
+				value = CLAMP(value, 0, 11);
+				_putpixel(x, y, palette[value]);
+			}	
 		}
 	}
 }
