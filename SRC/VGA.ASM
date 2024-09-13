@@ -1,4 +1,3 @@
-.286
 .model small
 .data
 .code
