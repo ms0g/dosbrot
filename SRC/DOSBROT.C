@@ -3,7 +3,7 @@
 #define WIDTH 320
 #define HEIGHT 200
 
-#define CLAMP(v, lo, hi) (v > lo && v < hi) ? v: (v < lo) ? lo:(v > hi) ? hi:0
+#define CLAMP(v, lo, hi) (v < lo) ? lo:(v > hi) ? hi:v
 
 static char palette[12] = {
 	LIGHTMAGENTA,
