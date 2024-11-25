@@ -1,5 +1,4 @@
 # Dosbrot - Mandelbrot Set Renderer for PC DOS
-## Overview
 **Dosbrot** is a lightweight Mandelbrot Set renderer for PC DOS systems.
 
 <img src="RES/mandelbrot.png" alt="image" width="700" height="auto">
